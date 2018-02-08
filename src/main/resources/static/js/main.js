@@ -49,7 +49,7 @@ function selectProduct(productId) {
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data, textStatus, jqXHR) {
-            console.log("stock info: " + data.stockInfo);
+            console.log("stock info: " + data.stockTotal);
         },
         error: function (data, textStatus, jqXHR) {
             console.log("Cannot read stock info");
