@@ -1,5 +1,6 @@
 let products = [];
-let product;
+let productId;
+let howManySelected;
 
 
 window.onload = function () {
@@ -41,7 +42,9 @@ function populateProductsList() {
     $(document.getElementById('products')).append(list);
 }
 
-function selectProduct(productId) {
+function selectProduct(prId) {
+
+    productId = prId;
 
     //stock-service
     $.ajax({
@@ -49,10 +52,72 @@ function selectProduct(productId) {
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data, textStatus, jqXHR) {
-            console.log("stock info: " + data.stockTotal);
+            showStockResults(data);
         },
         error: function (data, textStatus, jqXHR) {
             console.log("Cannot read stock info");
         }
     });
+}
+
+function showStockResults(stock) {
+
+    document.getElementById('productsInStock').innerHTML = stock.stockTotal;
+    document.getElementById('howMany').innerHTML = "";
+    if (stock.stockTotal !== 0) {
+        document.getElementById("howManyContinueButton").className = "btn btn-primary enabled";
+        createDropDownList(stock.stockTotal);
+    } else {
+        document.getElementById("howManyContinueButton").className = "btn btn-primary disabled";
+    }
+    showStockCard();
+}
+
+function createDropDownList(howMany) {
+
+    let list = [];
+    for (let i = 0; i < howMany; i++) {
+        list[i] =
+            $('<option>', {
+                text: (i + 1)
+            })
+    }
+    $(document.getElementById('howMany')).append(list);
+}
+
+document.getElementById('howManyContinueButton').onclick = function () {
+    let selected = document.getElementById('howMany');
+    let howMany = selected.selectedIndex + 1;
+
+    getDeliveryTimeToDeposit(howMany);
+
+    console.log("howMany: " + howMany);
+};
+
+function getDeliveryTimeToDeposit(howMany) {
+
+    //stock-service
+    $.ajax({
+        url: "http://localhost:8084/stock/when?productId=" + productId + "&howMany=" + howMany,
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: function (data, textStatus, jqXHR) {
+            showDeliveryEstimation(data);
+        },
+        error: function (data, textStatus, jqXHR) {
+            console.log("Cannot read stock delivery estimation");
+        }
+    });
+}
+
+function showDeliveryEstimation(daysToArriveInDeposit) {
+    console.log("daysToArriveInDeposit: " + daysToArriveInDeposit);
+}
+
+function showStockCard() {
+    $('#detailsCard').show();
+}
+
+function hideStockCard() {
+    $('#detailsCard').hide();
 }

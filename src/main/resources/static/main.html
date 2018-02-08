@@ -4,25 +4,54 @@
     <meta charset="UTF-8">
     <title>Microservices example</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 </head>
 <body>
 
-<!--<button type="button" class="btn btn-primary active">Active Primary</button>
-<button type="button" class="btn btn-primary disabled">Disabled Primary</button>-->
-
-
 <div class="container-fluid" style="margin-left: 20px">
-    <h1></h1>
+    <h1>Microservices working example</h1>
     <p>.............................................</p>
-    <p>......................................................................</p>
+    <p>.............................................</p>
     <div class="row">
         <div class="col-sm-4 col-md-2" style="background-color:lavender;">Products
             <div id="products" class="list-group">
             </div>
         </div>
-        <div id="details" class="col-sm-4 col-md-2" style="background-color:lavenderblush;">Details</div>
-        <div id="delivery" class="col-sm-4 col-md-2" style="background-color:mediumspringgreen;">Delivery estimation</div>
+        <div id="details" class="col-sm-4 col-md-2" style="background-color:lavenderblush;">Details
+            <div class="list-group" id= "detailsCard" style="display: none;">
+                <div class="card" style="background-color:white;">
+                    <!-- <img class="card-img-top" src="..." alt="Card image cap">-->
+                    <div class="card-block" style="padding: 20px">
+                        <h4 class="card-title">About</h4>
+                        <p class="card-text">We found <a class="font-weight-bold" id="productsInStock">0</a> pieces in
+                            our supplier stock</p>
+                        <div class="form-group">
+                            <label for="howMany">How many you want:</label>
+                            <select class="form-control" id="howMany">
+                            </select>
+                        </div>
+                        <a id="howManyContinueButton" class="btn btn-primary disabled">Continue</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="delivery" class="col-sm-4 col-md-2" style="background-color:mediumspringgreen;">Delivery estimation
+            <div class="list-group" id= "estimationCard" style="display: none;">
+                <div class="card" style="background-color:white;">
+                    <!-- <img class="card-img-top" src="..." alt="Card image cap">-->
+                    <div class="card-block" style="padding: 20px">
+                        <h4 class="card-title">About</h4>
+                        <p class="card-text">We found <a class="font-weight-bold" id="daysInOurStock">0</a> pieces in
+                            our supplier stock</p>
+                        <div class="form-group">
+                            <label for="yourCountry">How many you want:</label>
+                            <select class="form-control" id="yourCountry">
+                            </select>
+                        </div>
+                        <a id="countryContinueButton" class="btn btn-primary disabled">Continue</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="confirm" class="col-sm-4 col-md-2" style="background-color:lightseagreen;">Confirm delivery</div>
         <div id="order" class="col-sm-4 col-md-2" style="background-color:lightcoral;">Order product</div>
     </div>
