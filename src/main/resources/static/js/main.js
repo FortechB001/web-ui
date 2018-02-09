@@ -16,7 +16,7 @@ function getProducts() {
 
     //products-service
     $.ajax({
-        url: "http://localhost:8083/product/all",
+        url: "http://localhost:8081/api/product-service/product/all",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data, textStatus, jqXHR) {
@@ -61,7 +61,7 @@ function selectProduct(prId) {
 
     //stock-service
     $.ajax({
-        url: "http://localhost:8084/stock/find?productId=" + productId,
+        url: "http://localhost:8081/api/stock-service/stock/find?productId=" + productId,
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data, textStatus, jqXHR) {
@@ -111,7 +111,7 @@ function getDeliveryTimeToDeposit(howMany) {
 
     //stock-service
     $.ajax({
-        url: "http://localhost:8084/stock/when?productId=" + productId + "&howMany=" + howMany,
+        url: "http://localhost:8081/api/stock-service/stock/when?productId=" + productId + "&howMany=" + howMany,
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data, textStatus, jqXHR) {
@@ -140,7 +140,7 @@ function populateDeliveryCountryList() {
 
     //estimation-service
     $.ajax({
-        url: "http://localhost:8085/estimation/countries",
+        url: "http://localhost:8081/api/estimation-service/estimation/countries",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data, textStatus, jqXHR) {
@@ -179,7 +179,7 @@ document.getElementById('countryContinueButton').onclick = function () {
 
 function getConfirmDeliveryToUser(country) {
     //estimation-service
-    let url = "http://localhost:8085/estimation/delivery?" +
+    let url = "http://localhost:8081/api/estimation-service/estimation/delivery?" +
         "id=" + productId + "&howMany=" + howManySelected + "&daysToArriveInDeposit=" +
         daysToArriveInDeposit + "&country=" + country;
 
@@ -219,10 +219,8 @@ function showConfirmDeliveryResult() {
 
 document.getElementById('orderProductButton').onclick = function () {
 
-    let result;
-
     //order-service
-    let url = "http://localhost:8086/order/make?" +
+    let url = "http://localhost:8081/api/order-service/order/make?" +
         "id=" + productId +
         "&howMany=" + howManySelected +
         "&daysToArriveInDeposit=" + daysToArriveInDeposit +
