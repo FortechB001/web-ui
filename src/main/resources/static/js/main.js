@@ -7,8 +7,6 @@ let order;
 
 
 window.onload = function () {
-
-    //alert("hello");
     getProducts();
 };
 
@@ -31,10 +29,9 @@ function getProducts() {
 
 function populateProductsList() {
 
-    let prod = document.getElementById('products');
     let list = [];
-
     for (let i = 0; i < products.length; i++) {
+
         list[i] =
             $('<a>', {
                 href: '#',
@@ -76,6 +73,9 @@ function selectProduct(prId) {
 function showStockResults(stock) {
 
     document.getElementById('productsInStock').innerHTML = stock.stockTotal;
+
+    let product = products.find(o => o.id = stock.productId);
+    document.getElementById('productDescription').innerHTML = product.description;
     document.getElementById('howMany').innerHTML = "";
     if (stock.stockTotal !== 0) {
         document.getElementById("howManyContinueButton").className = "btn btn-primary enabled";

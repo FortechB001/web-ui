@@ -10,4 +10,9 @@ public class NavigationController {
     public String main() {
         return "main.html";
     }
+
+    @GetMapping(path = "/admin")
+    public String admin() {
+        return "administration.html";
+    }
 }

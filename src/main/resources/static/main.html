@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Microservices example</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 </head>
 <body>
 
-<div class="container-fluid" style="margin-left: 20px">
+<div class="container-fluid" style="margin-left: 20px; margin-top: 50px">
     <h1>Microservices working example</h1>
-    <p>.............................................</p>
-    <p>.............................................</p>
+    <br/>
     <div class="row">
-        <div class="col-sm-4 col-md-2" style="background-color:lavender;">Products
-            <div id="products" class="list-group">
+        <div class="col-sm-4 col-md-2" style="background-color:lavender;"><h5>Products</h5>
+            <div id="products" class="list-group" style="margin-bottom: 20px">
             </div>
         </div>
-        <div id="details" class="col-sm-4 col-md-2" style="background-color:lavenderblush;">Details
+        <div id="details" class="col-sm-4 col-md-2" style="background-color:lavenderblush;"><h5>Details</h5>
             <div class="list-group" id="detailsCard" style="display: none;">
                 <div class="card" style="background-color:white;">
                     <!-- <img class="card-img-top" src="..." alt="Card image cap">-->
                     <div class="card-block" style="padding: 20px">
-                        <h4 class="card-title">About</h4>
+                        <h5 class="card-title">About:
+                            <small id="productDescription"></small>
+                        </h5>
                         <p class="card-text">We found <a class="font-weight-bold" id="productsInStock">0</a> pieces in
                             our supplier stock</p>
                         <div class="form-group">
@@ -34,7 +35,8 @@
                 </div>
             </div>
         </div>
-        <div id="delivery" class="col-sm-4 col-md-2" style="background-color:mediumspringgreen;">Delivery estimation
+        <div id="delivery" class="col-sm-4 col-md-2" style="background-color:mediumspringgreen;"><h5>Delivery
+            estimation</h5>
             <div class="list-group" id="estimationCard" style="display: none;">
                 <div class="card" style="background-color:white;">
                     <div class="card-block" style="padding: 20px">
@@ -51,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div id="confirm" class="col-sm-4 col-md-2" style="background-color:lightseagreen;">Confirm delivery
+        <div id="confirm" class="col-sm-4 col-md-2" style="background-color:lightseagreen;"><h5>Confirm delivery</h5>
             <div class="list-group" id="confirmDelivery" style="display: none;">
                 <div class="card" style="background-color:white;">
                     <div class="card-block" style="padding: 20px">
@@ -63,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div id="order" class="col-sm-6 col-md-2" style="background-color:lightcoral;">Order product
+        <div id="order" class="col-sm-6 col-md-2" style="background-color:lightcoral;"><h5>Order product</h5>
             <div class="list-group" id="orderProduct" style="display: none;">
                 <div class="card" style="background-color:white;">
                     <div class="card-block" style="padding: 20px">
@@ -71,7 +73,7 @@
                         <p class="card-text">Product name: <a class="font-weight-bold" id="orderProductName"></a><br/>
                             Quantity: <a class="font-weight-bold" id="orderQuantity"></a><br/>
                             Days to arrive at your location: <a class="font-weight-bold" id="orderDaysToArrive"></a>
-                             </p>
+                        </p>
                         <a id="orderProductButton" class="btn btn-primary">Order</a>
                     </div>
                 </div>
@@ -90,7 +92,7 @@
                     <h4 class="modal-title">Order status</h4>
                 </div>
                 <div class="modal-body">
-                    <p id = "orderMessage"></p>
+                    <p id="orderMessage"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -102,7 +104,8 @@
 
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script src="../js/main.js"></script>
 
 </body>
