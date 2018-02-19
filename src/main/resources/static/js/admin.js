@@ -177,6 +177,7 @@ function editProductName(productId) {
 function openModal() {
     $('#newProductModal').modal('show');
 }
+
 //Add new product
 document.getElementById('addNewProduct').onclick = function () {
     let productName = document.getElementById('product-name').value;
@@ -194,9 +195,12 @@ document.getElementById('addNewProduct').onclick = function () {
             if (jqXHR.status === 406) {
                 document.getElementById('errorModalMessage').innerHTML = jqXHR.responseJSON.message;
                 $('#errorModal').modal('show');
+            } else {
+                document.getElementById('errorModalMessage').innerHTML = "Server is down. Please try later.";
+                $('#errorModal').modal('show');
             }
         },
-        complete : function () {
+        complete: function () {
             $('#newProductModal').modal('hide');
         }
     });
