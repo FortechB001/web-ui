@@ -14,7 +14,8 @@ function getProducts() {
 
     //products-service
     $.ajax({
-        url: "http://localhost:8081/api/product-service/product/all",
+        url: "http://localhost:8081/api/product-service-all/product/all",
+        //url: "https://spring-boot-fortech-reserch-api-gateway.cfapps.io/api/product-service-all/product/all",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data, textStatus, jqXHR) {
@@ -59,6 +60,9 @@ function selectProduct(prId) {
     //stock-service
     $.ajax({
         url: "http://localhost:8081/api/stock-service/stock/find?productId=" + productId,
+        //url: "https://spring-boot-fortech-reserch-api-gateway.cfapps.io/api/stock-service/stock/find?productId=" + productId,
+        //No EUREKA so we need to call directly our service :(
+        //url: "https://spring-boot-fortech-reserch-stock-service.cfapps.io/stock/find?productId=" + productId,
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data, textStatus, jqXHR) {

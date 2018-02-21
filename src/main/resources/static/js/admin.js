@@ -10,7 +10,7 @@ function getProducts() {
 
     //products-service
     $.ajax({
-        url: "http://localhost:8081/api/product-service/product/all",
+        url: "http://localhost:8081/api/product-service-all/product/all",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         success: function (data, textStatus, jqXHR) {
@@ -60,7 +60,7 @@ function populateTable() {
             '<input id="' + products[i].id + 'input' + '" class="form-control" type="number" min="0" max="100"/>' +
             '</div></td>';
         let totalQuantity = getTotalQuantity(products[i].id);
-        let saveButton = '<td><button type="button" id="' + products[i].id + 'save' + '" class="btn btn-success btn-md" onclick="saveNewStock(\'' + products[i].id + '\')">save</button></td>';
+        let saveButton = '<td><button type="button" id="' + products[i].id + 'save' + '" class="btn btn-primary btn-md" onclick="saveNewStock(\'' + products[i].id + '\')">save</button></td>';
 
         tableRows[i] =
             $('<tr>', {

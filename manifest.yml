@@ -1,0 +1,7 @@
+---
+applications:
+- name: spring-boot-fortech-reserch-web-ui
+  path: target/web-ui-0.0.1-SNAPSHOT.jar
+  domanin: cfapps.io
+  memory: 630m
+  instances: 1
