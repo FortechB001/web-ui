@@ -78,7 +78,7 @@ function showStockResults(stock) {
 
     document.getElementById('productsInStock').innerHTML = stock.stockTotal;
 
-    let product = products.find(o => o.id = stock.productId);
+    let product = products.find(o => o.id === stock.productId);
     document.getElementById('productDescription').innerHTML = product.description;
     document.getElementById('howMany').innerHTML = "";
     if (stock.stockTotal !== 0) {
